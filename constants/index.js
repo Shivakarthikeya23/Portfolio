@@ -354,14 +354,14 @@ const socials = [
     link: "https://www.linkedin.com/in/shiva-karthik-rallabandi-006a701a5/",
   },
   {
-    id: "email",
+    id: "instagram",
     icon: <InstagramIcon />,
-    link: "mailto:shivakarthikeya5@gmail.com",
+    link: "https://www.instagram.com/shivakarthikeya.sk/",
   },
   {
-    id: "phone",
+    id: "twitter",
     icon: <XIcon />,
-    link: "tel:+19899335575",
+    link: "https://x.com/sh1vakarthikeya",
   },
 ];
 

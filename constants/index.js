@@ -42,10 +42,6 @@ const services = [
     icon: <BackendIcon />,
   },
   {
-    title: "Frontend Developer",
-    icon: <FrontendIcon />,
-  },
-  {
     title: "Cloud & DevOps",
     icon: <ProblemSolvingIcon />,
   },
@@ -57,10 +53,6 @@ const services = [
     title: "Freelancer",
     icon: <FreelancerIcon />,
   },
-  // {
-  //   title: "Leadership",
-  //   icon: <LeaderShipIcon />,
-  // },
 ];
 
 const technologies = {
@@ -242,7 +234,7 @@ const experiences = [
   {
     title: "Software Development Engineer 1",
     company_name: "Ivanti",
-    icon: "/assets/company/ivanti-logo.svg",
+    icon: "/assets/company/ivanti.png",
     iconBg: "#E6DEDD",
     date: "Jul 2023 - Jul 2024",
     points: [
@@ -256,7 +248,7 @@ const experiences = [
   {
     title: "Software Development Engineer Intern",
     company_name: "Ivanti",
-    icon: "/assets/company/ivanti-logo.svg",
+    icon: "/assets/company/ivanti.png",
     iconBg: "#E6DEDD",
     date: "Jan 2023 - July 2023",
     points: [
@@ -266,46 +258,6 @@ const experiences = [
       "Strengthened application security by implementing JWT authentication and role-based access control (RBAC), reducing security vulnerabilities by 20%.",
       "Collaborated with cross-functional teams in an Agile environment, optimizing database transactions in PostgreSQL and Redis, reducing query execution times and enhancing system performance.",
     ],
-  },
-  // {
-  //   title: "Frontend Developer",
-  //   company_name: "Tech team member at GDSC MVJCE",
-  //   icon: "/assets/company/gdsc-logo.svg",
-  //   iconBg: "#E6DEDD",
-  //   date: "February 2022 - July 2023",
-  //   points: [
-  //     "Successfully planned and executed induction programs, providing new members with crucial information about the organization's goals and values.",
-  //     "Demonstrated web development expertise by conducting CSS workshops, equipping participants with practical web design and styling skills.",
-  //     "Played a crucial role in promoting GDSC events and actively collaborated with cross-functional teams to deliver high-quality projects, fostering teamwork and innovation.",
-  //     "Actively engaged with the GDSC community, assisted in workshops, and contributed to planning and managing GDSC events, ensuring their success and growth.",
-  //   ],
-  // },
-];
-
-const testimonials = [
-  {
-    testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
-  },
-  {
-    testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
-  },
-  {
-    testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
 ];
 
@@ -332,8 +284,8 @@ const projects = [
         color: "orange-text-gradient",
       },
     ],
-    image: "/assets/projects/azure-utility.png",
-    source_code_link: "https://github.com/shivakarthikeya5",
+    image: "/assets/projects/azureutility.png",
+    source_code_link: "https://github.com/Shivakarthikeya23",
     deployed_link: "#",
   },
   {
@@ -358,8 +310,8 @@ const projects = [
         color: "orange-text-gradient",
       },
     ],
-    image: "/assets/projects/story-books.png",
-    source_code_link: "https://github.com/shivakarthikeya5",
+    image: "/assets/projects/storybooks.png",
+    source_code_link: "https://github.com/Shivakarthikeya23/StoryBooks",
     deployed_link: "#",
   },
   {
@@ -384,8 +336,8 @@ const projects = [
         color: "orange-text-gradient",
       },
     ],
-    image: "/assets/projects/parkinsons.png",
-    source_code_link: "https://github.com/shivakarthikeya5",
+    image: "/assets/projects/parkinson.png",
+    source_code_link: "https://github.com/Shivakarthikeya23/ParkinsonDetector",
     deployed_link: "#",
   },
 ];
@@ -394,12 +346,12 @@ const socials = [
   {
     id: "github",
     icon: <GithubIcon />,
-    link: "https://github.com/shivakarthikeya5",
+    link: "https://github.com/Shivakarthikeya23",
   },
   {
     id: "linkedin",
     icon: <LinkedInIcon />,
-    link: "https://www.linkedin.com/in/shiva-karthik-rallabandi",
+    link: "https://www.linkedin.com/in/shiva-karthik-rallabandi-006a701a5/",
   },
   {
     id: "email",
@@ -431,7 +383,6 @@ export {
   services,
   technologies,
   experiences,
-  testimonials,
   projects,
   socials,
   heroTexts,

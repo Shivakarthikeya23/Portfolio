@@ -1,82 +1,51 @@
 import {
   OrbitControls,
   PerspectiveCamera,
-  RandomizedLight,
   useAnimations,
-  useFBX,
   useGLTF,
 } from "@react-three/drei";
 import { Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
-
 import CanvasLoader from "../Loader";
-import PlayerModel from "./models/PlayerModel";
 
 function Player({ isMobile }) {
   const group = useRef();
-  const [animationsLoaded, setAnimationsLoaded] = useState(false);
+  const [modelError, setModelError] = useState(false);
 
-  const { nodes, materials, scene } = useGLTF("models/player/player.gltf");
-  const { animations: waveAnimation } = useFBX(
-    "animations/model1.fbx"
-  );
-  scene.frustumCulled = false;
+  // Load GLB model
+  const { nodes, materials, animations, scene } = useGLTF("models/player/model.glb", undefined, (error) => {
+    console.error("Error loading model:", error);
+    setModelError(true);
+  });
 
-  if (waveAnimation && waveAnimation[0]) {
-    waveAnimation[0].name = "wave-animation";
-    
-    waveAnimation[0].tracks.forEach(track => {
-      if (track.name.includes('quaternion')) {
-        track.values = track.values.map((v, i) => {
-          if (i % 4 === 3) return Math.abs(v);
-          return v;
-        });
-      }
-      
-      if (track.name.includes('position')) {
-        track.values = track.values.map(v => v * 0.01);
-      }
-    });
-  }
-
-  const { actions } = useAnimations(waveAnimation, group);
+  // Use animations if available
+  const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
-    if (waveAnimation && actions["wave-animation"]) {
-      setAnimationsLoaded(true);
+    if (actions && Object.keys(actions).length > 0) {
+      const action = actions[Object.keys(actions)[0]]; // Play first available animation
+      action.reset().play();
     }
-    if (animationsLoaded) {
-      const action = actions["wave-animation"];
-      action.reset()
-        .setEffectiveTimeScale(1)
-        .setEffectiveWeight(1)
-        .setLoop(THREE.LoopRepeat, Infinity)
-        .play();
-    }
-  }, [animationsLoaded, waveAnimation, actions]);
+  }, [actions]);
 
-  setTimeout(() => {
-    if (waveAnimation && actions["wave-animation"]) {
-      setAnimationsLoaded(true);
-    }
-  }, 2000);
+  if (modelError || !nodes || !materials) {
+    return null; // Do not render if model fails to load
+  }
 
   return (
     <>
       <ambientLight intensity={1} />
       <PerspectiveCamera
         makeDefault
-        position={[0, 0, 12]}
-        fov={30}
-        near={0.8}
-        far={120}
-        zoom={1.4}
+        position={[0, 0, 15]}  // Moved camera back
+        fov={50}              // Increased field of view
+        near={0.1}
+        far={1000}
+        zoom={isMobile ? 0.9 : 1}
       />
-      <RandomizedLight position={[0, 1, 0]} />
       <pointLight intensity={2} position={[1, 1.5, 0]} color={"#804dee"} />
       <pointLight intensity={2} position={[-1, 1.5, 1]} color={"#4b42a7"} />
-      <pointLight intensity={2} position={[-1, 0.5, 1]} color={"#804dee"} />
       {!isMobile && (
         <OrbitControls
           makeDefault
@@ -86,18 +55,20 @@ function Player({ isMobile }) {
           enableDamping={true}
           dampingFactor={0.05}
           enablePan={false}
-          autoRotate={false}
         />
       )}
       <Suspense fallback={<CanvasLoader />}>
-        <PlayerModel
-          nodes={nodes}
-          materials={materials}
-          rotation={[-1.6, 0, 0]}
-          position={isMobile ? [0, -2.7, 0] : [0, -2.1, 0]}
-          scale={isMobile ? 3 : 2}
-          group={group}
-        />
+        <group 
+          ref={group} 
+          dispose={null}
+          position={[0, isMobile ? -1 : -2, 0]}  // Moved up by adjusting y position
+        >
+          <primitive 
+            object={scene} 
+            scale={isMobile ? 5 : 4}           // Increased scale
+            rotation={[0, 0, 0]}
+          />
+        </group>
       </Suspense>
     </>
   );

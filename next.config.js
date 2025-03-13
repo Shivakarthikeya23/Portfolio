@@ -8,6 +8,7 @@ const nextConfig = {
       "www.raw.githubusercontent.com",
       "raw.githubusercontent.com",
     ],
+    formats: ["image/webp"],
   },
   webpack(config) {
     // Grab the existing rule that handles SVG imports

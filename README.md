@@ -1,6 +1,5 @@
 # 3D Portfolio
 
-![Portfolio Screenshot](/public/assets/readme_assets/screenshot.png)
 
 This is my personal portfolio website created using Next.js, Tailwind CSS, Three.js, React Three Fiber, and other modern technologies. The website showcases my skills, experiences, projects, and provides a way to contact me. It features both dark and light themes for enhanced user experience.
 
@@ -49,13 +48,13 @@ You can see a live demo of the portfolio website at [https://shiva-karthik-portf
 1. Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/shivakarthikeya23/3D-Portfolio
+git clone https://github.com/Shivakarthikeya23/Portfolio
 ```
 
 2. Change to the project directory:
 
 ```bash
-cd 3d-portfolio
+cd Portfolio
 ```
 
 3. Install the project dependencies:

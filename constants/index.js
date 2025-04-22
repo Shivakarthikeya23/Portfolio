@@ -236,7 +236,7 @@ const experiences = [
     company_name: "CBA Communications Department, Central Michigan University",
     icon: "/assets/company/cmu.jpg", // Replace with the CMU logo if available
     iconBg: "#F5F5F5",
-    date: "Feb 2025 – Present",
+    date: "Jan 2025 – Present",
     points: [
       "Develop and edit compelling content for digital and print platforms, including articles, newsletters, social media posts, and promotional materials.",
       "Conduct interviews with students, faculty, and industry professionals to craft engaging feature stories and testimonials.",
@@ -424,6 +424,43 @@ const heroTexts = [
   500,
 ];
 
+const resume = `
+Shiva Karthik Rallabandi
+Mount Pleasant, MI | shivakarthikeya5@gmail.com | 
+LinkedIn : https://www.linkedin.com/in/shiva-karthik-rallabandi-006a701a5/
+GitHub : https://github.com/Shivakarthikeya23 
+Portfolio : https://portfolio-git-main-shivakarthikeya23s-projects.vercel.app/
+
+Education:
+- MS in Information Systems, Central Michigan University (Aug 2024 – May 2026)
+- BTech in IT, Keshav Memorial Institute of Technology (Aug 2019 – May 2023)
+
+Experience:
+Software Engineer 1, Ivanti (Jul 2023 – Jul 2024)
+- Developed C# .NET Azure microservices improving API scalability by 40%
+- Diagnosed bugs using Visual Studio and Postman, improving stability by 30%
+- Implemented SignalR + JWT-based Trusted Agent Feature for secure real-time access
+- Automated infra via Terraform + Azure DevOps, reducing deployment time by 50%
+- Optimized PostgreSQL/Redis queries, improving performance by 45%
+
+Software Engineer Intern, Ivanti (Jan 2023 – Jul 2023)
+- Built cost-saving tool using .NET + Azure Functions, cut infra costs by 25%
+- Refactored microservices with async processing, cut latency by 40%
+- Implemented JWT and RBAC security, improved protection by 20%
+
+Projects:
+ProductiVision – AI productivity tool using Azure Face API + Next.js
+Fitness Buddy – Full-stack fitness tracker with JWT auth & analytics
+Azure Utility Tool – Cost automation with C#, Terraform, Azure APIs
+
+Skills:
+Languages: Java, Python, C#, C/C++, TypeScript, SQL
+Frameworks: React, Node.js, Angular, Flask, FastAPI, .NET
+Databases: MongoDB, MySQL, Firebase, PostgreSQL, Redis
+Tools: Docker, Jenkins, Azure DevOps, Git, VS Code, PyCharm, Terraform
+`;
+
+
 export {
   navLinks,
   services,
@@ -432,4 +469,5 @@ export {
   projects,
   socials,
   heroTexts,
+  resume,
 };

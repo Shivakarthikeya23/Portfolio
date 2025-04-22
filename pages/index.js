@@ -68,8 +68,8 @@ function App({ loading }) {
             behavior: "smooth",
           });
         }}
-        className="fixed md:w-10 md:h-10 h-8 w-8 p-2 bottom-8 md:right-10 right-8 text-center text-secondary backdrop-filter backdrop-blur-xl bg-opacity-20 bg-tertiary rounded-lg hover:scale-110 transition-all duration-300"
-      >
+        className="fixed md:w-10 md:h-10 h-8 w-8 p-2 bottom-8 md:left-10 left-8 text-center text-secondary backdrop-filter backdrop-blur-xl bg-opacity-20 bg-tertiary rounded-lg hover:scale-110 transition-all duration-300"
+        >
         <UpArrow />
       </button>
       <Chatbot />

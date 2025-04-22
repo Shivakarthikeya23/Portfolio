@@ -19,7 +19,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^7.0.2",
-    "@react-three/drei": "^9.80.0",
+    "@react-three/drei": "^9.56.4",
     "@react-three/fiber": "^8.13.5",
     "@svgr/webpack": "^8.1.0",
     "@vercel/analytics": "^1.0.2",
@@ -39,7 +39,7 @@
     "react-type-animation": "^3.1.0",
     "react-vertical-timeline-component": "^3.6.0",
     "styled-components": "^4.4.1",
-    "three": "^0.152.2",
+    "three": "^0.150.1",
     "three-mesh-bvh": "^0.6.8"
   },
   "devDependencies": {

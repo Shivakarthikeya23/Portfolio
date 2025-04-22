@@ -6,12 +6,20 @@ import {
 } from "@react-three/drei";
 import { Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import CanvasLoader from "../Loader";
 
-function Player({ isMobile }) {
+function Player({ isMobile, rotation }) {  // Add rotation prop
   const group = useRef();
   const [modelError, setModelError] = useState(false);
+  const [rotationY, setRotationY] = useState(0);
+
+  useFrame(() => {
+    if (isMobile && group.current) {
+      group.current.rotation.y = rotationY + rotation * 0.005;
+      setRotationY(group.current.rotation.y);
+    }
+  });
 
   // Load GLB model
   const { nodes, materials, animations, scene } = useGLTF("models/player/model.glb", undefined, (error) => {
@@ -38,35 +46,36 @@ function Player({ isMobile }) {
       <ambientLight intensity={1} />
       <PerspectiveCamera
         makeDefault
-        position={[0, 0, 15]}  // Moved camera back
-        fov={50}              // Increased field of view
+        position={[0, 0, 15]}
+        fov={50}
         near={0.1}
         far={1000}
         zoom={isMobile ? 0.9 : 1}
       />
-      <pointLight intensity={2} position={[1, 1.5, 0]} color={"#804dee"} />
-      <pointLight intensity={2} position={[-1, 1.5, 1]} color={"#4b42a7"} />
-      {!isMobile && (
-        <OrbitControls
-          makeDefault
-          enableZoom={false}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-          enableDamping={true}
-          dampingFactor={0.05}
-          enablePan={false}
-        />
-      )}
+      <pointLight intensity={2} position={[1, 1.5, 0]} color={"#00bfff"} />
+      <pointLight intensity={2} position={[-1, 1.5, 1]} color={"#0088cc"} />
+      <OrbitControls
+        makeDefault
+        enableZoom={false}
+        maxPolarAngle={Math.PI / 2}
+        minPolarAngle={Math.PI / 2}
+        enableDamping={true}
+        dampingFactor={0.05}
+        enablePan={false}
+        touches={{
+          one: true,
+          two: false
+        }}
+      />
       <Suspense fallback={<CanvasLoader />}>
         <group 
           ref={group} 
           dispose={null}
-          position={[0, isMobile ? -1 : -2, 0]}  // Moved up by adjusting y position
+          position={[0, isMobile ? -1 : -2, 0]}
         >
           <primitive 
             object={scene} 
-            scale={isMobile ? 5 : 4}           // Increased scale
-            rotation={[0, 0, 0]}
+            scale={isMobile ? 5 : 4}
           />
         </group>
       </Suspense>
@@ -74,7 +83,7 @@ function Player({ isMobile }) {
   );
 }
 
-function PlayerCanvas({ isMobile }) {
+function PlayerCanvas({ isMobile, rotation }) {  // Add rotation prop
   return (
     <Canvas
       dpr={[1, 2]}
@@ -83,7 +92,7 @@ function PlayerCanvas({ isMobile }) {
         alpha: true,
       }}
     >
-      <Player isMobile={isMobile} />
+      <Player isMobile={isMobile} rotation={rotation} />
     </Canvas>
   );
 }

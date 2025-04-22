@@ -232,6 +232,21 @@ const technologies = {
 
 const experiences = [
   {
+    title: "Student Content Writer",
+    company_name: "CBA Communications Department, Central Michigan University",
+    icon: "/assets/company/cmu.jpg", // Replace with the CMU logo if available
+    iconBg: "#F5F5F5",
+    date: "Feb 2025 – Present",
+    points: [
+      "Develop and edit compelling content for digital and print platforms, including articles, newsletters, social media posts, and promotional materials.",
+      "Conduct interviews with students, faculty, and industry professionals to craft engaging feature stories and testimonials.",
+      "Collaborate with marketing and communications teams to strengthen brand presence and increase student engagement through strategic content initiatives.",
+      "Manage content calendars to ensure timely publication and alignment with institutional messaging and academic priorities.",
+      "Assist in photography and event media coverage, capturing visual content for use across various marketing campaigns.",
+      "Support RSO (Registered Student Organization) collaborations by promoting student-led initiatives and success stories within the College of Business.",
+    ],
+  },
+  {
     title: "Software Development Engineer 1",
     company_name: "Ivanti",
     icon: "/assets/company/ivanti.png",
@@ -262,6 +277,37 @@ const experiences = [
 ];
 
 const projects = [
+  {
+    name: "AI Recruiter Voice Agent",
+    description:
+      "A full-stack voice-enabled recruiter application that conducts dynamic interviews using Vapi. Built with Next.js, React, Supabase, and AI for intelligent prompt generation, it streamlines candidate screening and automates interview scheduling.",
+    tags: [
+      { name: "next.js", color: "blue-text-gradient" },
+      { name: "react", color: "green-text-gradient" },
+      { name: "supabase", color: "pink-text-gradient" },
+      { name: "vapi", color: "orange-text-gradient" },
+      { name: "ai", color: "purple-text-gradient" },
+    ],
+    image: "/assets/projects/ai-recruiter.png", // Make sure this image exists in your public/assets/projects folder
+    source_code_link: "https://github.com/Shivakarthikeya23/Ai-Interview-Scheduler-Voice-Agent",
+    deployed_link: "#",
+  },
+  {
+    name: "Fitness Buddy",
+    description:
+      "A full-stack fitness web application that allows users to track workouts, connect with fitness buddies, and monitor their fitness journey. Features include personalized workout plans, social interactions, and real-time messaging for an engaging fitness experience.",
+    tags: [
+      { name: "react.js", color: "blue-text-gradient" },
+      { name: "node.js", color: "green-text-gradient" },
+      { name: "express.js", color: "pink-text-gradient" },
+      { name: "mongodb", color: "orange-text-gradient" },
+      { name: "jwt", color: "purple-text-gradient" },
+      { name: "tailwindcss", color: "blue-text-gradient" },
+    ],
+    image: "/assets/projects/fitnessbuddy.png", // Add this image to your public/assets/projects folder
+    source_code_link: "https://github.com/Shivakarthikeya23/fitness-buddy", // Update if needed
+    deployed_link: "#", // Add if deployed
+  },
   {
     name: "Azure Utility Tool",
     description:

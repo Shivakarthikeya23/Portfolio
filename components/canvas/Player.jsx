@@ -46,7 +46,7 @@ function Player({ isMobile, rotation }) {  // Add rotation prop
       <ambientLight intensity={1} />
       <PerspectiveCamera
         makeDefault
-        position={[0, 0, 15]}
+        position={isMobile?[0, 0, 18] :[0, 0, 15]}
         fov={50}
         near={0.1}
         far={1000}
@@ -71,7 +71,7 @@ function Player({ isMobile, rotation }) {  // Add rotation prop
         <group 
           ref={group} 
           dispose={null}
-          position={[0, isMobile ? -1 : -2, 0]}
+          position={[0, isMobile ? -2 : -2, 0]}
         >
           <primitive 
             object={scene} 

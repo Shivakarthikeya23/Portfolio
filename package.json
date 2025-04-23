@@ -19,7 +19,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^7.0.2",
-    "@react-three/drei": "^9.56.4",
+    "@react-three/drei": "^9.47.1",
     "@react-three/fiber": "^8.13.5",
     "@svgr/webpack": "^8.1.0",
     "@vercel/analytics": "^1.0.2",

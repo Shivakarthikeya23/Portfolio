@@ -38,12 +38,15 @@
     "react-type-animation": "^3.1.0",
     "react-vertical-timeline-component": "^3.6.0",
     "styled-components": "^4.4.1",
-    "three": "^0.150.1",
-    "three-mesh-bvh": "^0.5.10"
+    "three": "^0.159.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.15",
     "postcss": "^8.4.29",
     "tailwindcss": "^3.3.3"
+  },
+  "resolutions": {
+    "three": "^0.159.0",
+    "three-mesh-bvh": "^0.8.0"
   }
 }

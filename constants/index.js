@@ -232,8 +232,24 @@ const technologies = {
 
 const experiences = [
   {
+    title: "Software Engineer",
+    company_name: "Strike Stock AI",
+    icon: "/assets/company/strikestock.png", // Replace with the CMU logo if available
+    iconBg: "#F5F5F5",
+    date: "Jun 2025 – Present",
+    points: [
+      "Designed and implemented machine learning algorithms for stock behavior prediction, leveraging key financial indicators and performance metrics.",
+      "Developed and deployed interactive Streamlit applications to visualize market insights and algorithm outputs for end-user accessibility.",
+      "Collaborated with cross-functional teams to test, validate, and refine trading algorithms, analyzing win rates and optimizing model performance.",
+      "Explored and interpreted multiple patented trading methodologies to inform system design and enhance proprietary AI-driven strategies.",
+      "Conducted infrastructure planning and code migration discussions, preparing to transition Python-based systems to C# for production scalability.",
+      "Integrated data acquisition pipelines using Pinescript and APIs to pull and analyze high-frequency (5-minute) stock data with spectral indicators.",
+    ],
+  },
+  {
     title: "Student Content Writer",
-    company_name: "CBA Communications Department, Central Michigan University",
+    company_name:
+      "College of Business Administration, Central Michigan University",
     icon: "/assets/company/cmu.jpg", // Replace with the CMU logo if available
     iconBg: "#F5F5F5",
     date: "Jan 2025 – Present",
@@ -289,8 +305,41 @@ const projects = [
       { name: "ai", color: "purple-text-gradient" },
     ],
     image: "/assets/projects/ai-recruiter.png", // Make sure this image exists in your public/assets/projects folder
-    source_code_link: "https://github.com/Shivakarthikeya23/Ai-Interview-Scheduler-Voice-Agent",
-    deployed_link: "#",
+    source_code_link:
+      "https://github.com/Shivakarthikeya23/Ai-Interview-Scheduler-Voice-Agent",
+    deployed_link:
+      "https://ai-interview-scheduler-voice-agent-bice.vercel.app/",
+  },
+  {
+    name: "CultureSense - AI Cultural Intelligence",
+    description:
+      "An AI-powered cultural intelligence platform that helps businesses make data-driven decisions by understanding consumer preferences across music, fashion, food, and travel domains. Built with Qloo's Taste AI and Google Gemini for cross-domain cultural analysis and strategic insights.",
+    tags: [
+      { name: "next.js", color: "blue-text-gradient" },
+      { name: "typescript", color: "green-text-gradient" },
+      { name: "supabase", color: "pink-text-gradient" },
+      { name: "gemini-ai", color: "orange-text-gradient" },
+      { name: "qloo-api", color: "purple-text-gradient" },
+    ],
+    image: "/assets/projects/culture-sense.png", // Make sure this image exists in your public/assets/projects folder
+    source_code_link: "https://github.com/Shivakarthikeya23/CultureSense",
+    deployed_link: "https://culture-sense.vercel.app/", // Add deployment URL if available
+  },
+  {
+    name: "Student Productivity Tracker",
+    description:
+      "A real-time web application that detects student distraction using custom-trained CNNs and live webcam input. Features eye closure and yawning detection with robust blink smoothing, built with PyTorch and FastAPI for real-time monitoring.",
+    tags: [
+      { name: "python", color: "blue-text-gradient" },
+      { name: "pytorch", color: "green-text-gradient" },
+      { name: "opencv", color: "pink-text-gradient" },
+      { name: "fastapi", color: "orange-text-gradient" },
+      { name: "machine-learning", color: "purple-text-gradient" },
+    ],
+    image: "/assets/projects/productivity-tracker.png", // Make sure this image exists in your public/assets/projects folder
+    source_code_link:
+      "https://github.com/Shivakarthikeya23/productivity-tracker",
+    deployed_link: "https://productivity-tracker-ten.vercel.app/",
   },
   {
     name: "Fitness Buddy",
@@ -459,7 +508,6 @@ Frameworks: React, Node.js, Angular, Flask, FastAPI, .NET
 Databases: MongoDB, MySQL, Firebase, PostgreSQL, Redis
 Tools: Docker, Jenkins, Azure DevOps, Git, VS Code, PyCharm, Terraform
 `;
-
 
 export {
   navLinks,

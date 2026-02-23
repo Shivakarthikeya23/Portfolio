@@ -10,17 +10,15 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				primary: "#804dee",
-				secondary: "#4b42a7",
-				tertiary: "#9b4dee",
+				primary: "#00bfff",    // Changed from purple to sky blue
+				secondary: "#0088cc",   // Changed to darker sky blue
+				tertiary: "#40c9ff",   // Changed to lighter sky blue
 				quaternary: "#4d9aee",
-				five: "#cbb8f5",
+				five: "#b8e7f5",       // Changed to light sky blue
 
 				ctnPrimaryLight: "#2e384d",
-				ctnSecondaryLight: "#4b42a7",
+				ctnSecondaryLight: "#0088cc",  // Updated to match new secondary
 
-				// bgPrimaryDark: "#181826",
-				// bgSecondaryDark: "#212134",
 				ctnPrimaryDark: "#e5e6e9",
 				ctnSecondaryDark: "#7e8c9f"
 			},

@@ -232,6 +232,37 @@ const technologies = {
 
 const experiences = [
   {
+    title: "Software Engineer",
+    company_name: "Strike Stock AI",
+    icon: "/assets/company/strikestock.png", // Replace with the CMU logo if available
+    iconBg: "#F5F5F5",
+    date: "Jun 2025 – Present",
+    points: [
+      "Designed and implemented machine learning algorithms for stock behavior prediction, leveraging key financial indicators and performance metrics.",
+      "Developed and deployed interactive Streamlit applications to visualize market insights and algorithm outputs for end-user accessibility.",
+      "Collaborated with cross-functional teams to test, validate, and refine trading algorithms, analyzing win rates and optimizing model performance.",
+      "Explored and interpreted multiple patented trading methodologies to inform system design and enhance proprietary AI-driven strategies.",
+      "Conducted infrastructure planning and code migration discussions, preparing to transition Python-based systems to C# for production scalability.",
+      "Integrated data acquisition pipelines using Pinescript and APIs to pull and analyze high-frequency (5-minute) stock data with spectral indicators.",
+    ],
+  },
+  {
+    title: "Student Content Writer",
+    company_name:
+      "College of Business Administration, Central Michigan University",
+    icon: "/assets/company/cmu.jpg", // Replace with the CMU logo if available
+    iconBg: "#F5F5F5",
+    date: "Jan 2025 – Present",
+    points: [
+      "Develop and edit compelling content for digital and print platforms, including articles, newsletters, social media posts, and promotional materials.",
+      "Conduct interviews with students, faculty, and industry professionals to craft engaging feature stories and testimonials.",
+      "Collaborate with marketing and communications teams to strengthen brand presence and increase student engagement through strategic content initiatives.",
+      "Manage content calendars to ensure timely publication and alignment with institutional messaging and academic priorities.",
+      "Assist in photography and event media coverage, capturing visual content for use across various marketing campaigns.",
+      "Support RSO (Registered Student Organization) collaborations by promoting student-led initiatives and success stories within the College of Business.",
+    ],
+  },
+  {
     title: "Software Development Engineer 1",
     company_name: "Ivanti",
     icon: "/assets/company/ivanti.png",
@@ -262,6 +293,70 @@ const experiences = [
 ];
 
 const projects = [
+  {
+    name: "AI Recruiter Voice Agent",
+    description:
+      "A full-stack voice-enabled recruiter application that conducts dynamic interviews using Vapi. Built with Next.js, React, Supabase, and AI for intelligent prompt generation, it streamlines candidate screening and automates interview scheduling.",
+    tags: [
+      { name: "next.js", color: "blue-text-gradient" },
+      { name: "react", color: "green-text-gradient" },
+      { name: "supabase", color: "pink-text-gradient" },
+      { name: "vapi", color: "orange-text-gradient" },
+      { name: "ai", color: "purple-text-gradient" },
+    ],
+    image: "/assets/projects/ai-recruiter.png", // Make sure this image exists in your public/assets/projects folder
+    source_code_link:
+      "https://github.com/Shivakarthikeya23/Ai-Interview-Scheduler-Voice-Agent",
+    deployed_link:
+      "https://ai-interview-scheduler-voice-agent-bice.vercel.app/",
+  },
+  {
+    name: "CultureSense - AI Cultural Intelligence",
+    description:
+      "An AI-powered cultural intelligence platform that helps businesses make data-driven decisions by understanding consumer preferences across music, fashion, food, and travel domains. Built with Qloo's Taste AI and Google Gemini for cross-domain cultural analysis and strategic insights.",
+    tags: [
+      { name: "next.js", color: "blue-text-gradient" },
+      { name: "typescript", color: "green-text-gradient" },
+      { name: "supabase", color: "pink-text-gradient" },
+      { name: "gemini-ai", color: "orange-text-gradient" },
+      { name: "qloo-api", color: "purple-text-gradient" },
+    ],
+    image: "/assets/projects/culture-sense.png", // Make sure this image exists in your public/assets/projects folder
+    source_code_link: "https://github.com/Shivakarthikeya23/CultureSense",
+    deployed_link: "https://culture-sense.vercel.app/", // Add deployment URL if available
+  },
+  {
+    name: "Student Productivity Tracker",
+    description:
+      "A real-time web application that detects student distraction using custom-trained CNNs and live webcam input. Features eye closure and yawning detection with robust blink smoothing, built with PyTorch and FastAPI for real-time monitoring.",
+    tags: [
+      { name: "python", color: "blue-text-gradient" },
+      { name: "pytorch", color: "green-text-gradient" },
+      { name: "opencv", color: "pink-text-gradient" },
+      { name: "fastapi", color: "orange-text-gradient" },
+      { name: "machine-learning", color: "purple-text-gradient" },
+    ],
+    image: "/assets/projects/productivity-tracker.png", // Make sure this image exists in your public/assets/projects folder
+    source_code_link:
+      "https://github.com/Shivakarthikeya23/productivity-tracker",
+    deployed_link: "https://productivity-tracker-ten.vercel.app/",
+  },
+  {
+    name: "Fitness Buddy",
+    description:
+      "A full-stack fitness web application that allows users to track workouts, connect with fitness buddies, and monitor their fitness journey. Features include personalized workout plans, social interactions, and real-time messaging for an engaging fitness experience.",
+    tags: [
+      { name: "react.js", color: "blue-text-gradient" },
+      { name: "node.js", color: "green-text-gradient" },
+      { name: "express.js", color: "pink-text-gradient" },
+      { name: "mongodb", color: "orange-text-gradient" },
+      { name: "jwt", color: "purple-text-gradient" },
+      { name: "tailwindcss", color: "blue-text-gradient" },
+    ],
+    image: "/assets/projects/fitnessbuddy.png", // Add this image to your public/assets/projects folder
+    source_code_link: "https://github.com/Shivakarthikeya23/fitness-buddy", // Update if needed
+    deployed_link: "#", // Add if deployed
+  },
   {
     name: "Azure Utility Tool",
     description:
@@ -378,6 +473,42 @@ const heroTexts = [
   500,
 ];
 
+const resume = `
+Shiva Karthik Rallabandi
+Mount Pleasant, MI | shivakarthikeya5@gmail.com | 
+LinkedIn : https://www.linkedin.com/in/shiva-karthik-rallabandi-006a701a5/
+GitHub : https://github.com/Shivakarthikeya23 
+Portfolio : https://portfolio-git-main-shivakarthikeya23s-projects.vercel.app/
+
+Education:
+- MS in Information Systems, Central Michigan University (Aug 2024 – May 2026)
+- BTech in IT, Keshav Memorial Institute of Technology (Aug 2019 – May 2023)
+
+Experience:
+Software Engineer 1, Ivanti (Jul 2023 – Jul 2024)
+- Developed C# .NET Azure microservices improving API scalability by 40%
+- Diagnosed bugs using Visual Studio and Postman, improving stability by 30%
+- Implemented SignalR + JWT-based Trusted Agent Feature for secure real-time access
+- Automated infra via Terraform + Azure DevOps, reducing deployment time by 50%
+- Optimized PostgreSQL/Redis queries, improving performance by 45%
+
+Software Engineer Intern, Ivanti (Jan 2023 – Jul 2023)
+- Built cost-saving tool using .NET + Azure Functions, cut infra costs by 25%
+- Refactored microservices with async processing, cut latency by 40%
+- Implemented JWT and RBAC security, improved protection by 20%
+
+Projects:
+ProductiVision – AI productivity tool using Azure Face API + Next.js
+Fitness Buddy – Full-stack fitness tracker with JWT auth & analytics
+Azure Utility Tool – Cost automation with C#, Terraform, Azure APIs
+
+Skills:
+Languages: Java, Python, C#, C/C++, TypeScript, SQL
+Frameworks: React, Node.js, Angular, Flask, FastAPI, .NET
+Databases: MongoDB, MySQL, Firebase, PostgreSQL, Redis
+Tools: Docker, Jenkins, Azure DevOps, Git, VS Code, PyCharm, Terraform
+`;
+
 export {
   navLinks,
   services,
@@ -386,4 +517,5 @@ export {
   projects,
   socials,
   heroTexts,
+  resume,
 };

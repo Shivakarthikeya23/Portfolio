@@ -4,6 +4,13 @@ import { experiences, projects, resume } from '../constants';
 
 const OPENROUTER_API_KEY = process.env.NEXT_PUBLIC_OPENROUTER_API_KEY;
 const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
+// Tried in order; free OpenRouter models get deprecated/rate-limited often, so
+// fall back down the chain instead of depending on a single model surviving.
+const CHAT_MODELS = [
+  "minimax/minimax-m3:free",
+  "google/gemma-4-31b-it:free",
+  "z-ai/glm-5.2:free",
+];
 
 // Function to generate AI response
 const generateResponse = async (userInput) => {
@@ -47,32 +54,41 @@ CRITICAL INSTRUCTION: Be brief, helpful, and confident. Avoid follow-up prompts 
 `;
 
 
-  try {
-    const response = await fetch(OPENROUTER_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
-        "HTTP-Referer": "https://your-site.com",
-      },
-      body: JSON.stringify({
-        model: "google/gemini-2.0-flash-exp:free",
-        messages: [
-          { role: "system", content: context },
-          { role: "user", content: userInput },
-        ],
-        temperature: 0.3,
-        max_tokens: 150
-      })
-    });
+  for (const model of CHAT_MODELS) {
+    try {
+      const response = await fetch(OPENROUTER_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
+          "HTTP-Referer": "https://shiva-karthik-portfolio.vercel.app/",
+        },
+        body: JSON.stringify({
+          model,
+          messages: [
+            { role: "system", content: context },
+            { role: "user", content: userInput },
+          ],
+          temperature: 0.3,
+          max_tokens: 400,
+        }),
+      });
 
-    const data = await response.json();
-    console.log(data.choices?.[0]?.message?.content?.trim()); // Log the entire response for debugging purposes
-    return data.choices?.[0]?.message?.content?.trim() || "Hmm... I couldn't understand that.";
-  } catch (error) {
-    console.error('AI Response Error:', error);
-    return "I apologize, I'm having trouble connecting to the AI service right now.";
+      const data = await response.json();
+
+      if (!response.ok || data.error) {
+        console.error(`AI model "${model}" failed:`, data.error ?? response.status);
+        continue; // try the next model in the fallback chain
+      }
+
+      const content = data.choices?.[0]?.message?.content?.trim();
+      if (content) return content;
+    } catch (error) {
+      console.error(`AI model "${model}" request failed:`, error);
+    }
   }
+
+  return "I'm having trouble reaching the AI service right now — please try again in a moment, or reach out directly at shivakarthikeya5@gmail.com.";
 };
 
 function CustomChatbot() {

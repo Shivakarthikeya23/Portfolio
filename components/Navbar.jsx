@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import { navLinks } from "../constants";
 import ThemeButton from "./ThemeButton";
+import Magnetic from "./Magnetic";
 import Menu from "./../public/assets/icons/menu.svg";
 import Close from "./../public/assets/icons/close.svg";
 import { slideIn } from "@/utils/motion";
@@ -13,6 +14,7 @@ function Navbar() {
 	const [active, setActive] = useState("");
 	const [toggle, setToggle] = useState(false);
 	const [avatarToggle, setAvatarToggle] = useState(false);
+	const [scrolled, setScrolled] = useState(false);
 
 	useEffect(() => {
 		if (avatarToggle) {
@@ -21,6 +23,13 @@ function Navbar() {
 			document.body.style.overflowY = "auto";
 		}
 	}, [avatarToggle]);
+
+	useEffect(() => {
+		const onScroll = () => setScrolled(window.scrollY > 40);
+		onScroll();
+		window.addEventListener("scroll", onScroll, { passive: true });
+		return () => window.removeEventListener("scroll", onScroll);
+	}, []);
 
 	function AvatarModal() {
 		return (
@@ -49,25 +58,31 @@ function Navbar() {
 	return (
 		<>
 			<nav
-				className={`paddingX w-full flex items-center py-5 fixed top-0 z-30 bg-transparent backdrop-filter backdrop-blur-xl bg-opacity-60`}
+				className={`paddingX w-full flex items-center py-5 fixed top-0 z-30 backdrop-filter backdrop-blur-xl transition-all duration-300 ease-out ${
+					scrolled
+						? "dark:bg-[#0a0a12]/70 bg-white/60 shadow-sm shadow-black/5"
+						: "bg-transparent"
+				}`}
 			>
 				{avatarToggle && <AvatarModal />}
 				<div className="w-full flex justify-between items-center max-w-7xl mx-auto">
 					<div href="/" className="flex items-center gap-6">
-						<div
-							className="w-9 h-9 object-contain
+						<Magnetic strength={0.25}>
+							<div
+								className="w-9 h-9 object-contain
                         rounded-full relative cursor-pointer"
-						>
-							<Image
-								src="/assets/avatar.png"
-								alt="avatar"
-								fill={true}
-								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
-								className="w-9 h-9 object-cover
+							>
+								<Image
+									src="/assets/avatar.png"
+									alt="avatar"
+									fill={true}
+									sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
+									className="w-9 h-9 object-cover
                         rounded-full"
-								onClick={() => setAvatarToggle(!avatarToggle)}
-							/>
-						</div>
+									onClick={() => setAvatarToggle(!avatarToggle)}
+								/>
+							</div>
+						</Magnetic>
 						<Link href="/">
 							<p className="dark:text-ctnPrimaryDark text-ctnPrimaryLight text-[18px] font-bold cursor-pointer flex ">
 								Shiva Karthik &nbsp;
@@ -90,7 +105,9 @@ function Navbar() {
 								}`}
 								onClick={() => setActive(nav.title)}
 							>
-								<a href={`#${nav.id}`}>{nav.title}</a>
+								<Magnetic strength={0.3}>
+									<a href={`#${nav.id}`}>{nav.title}</a>
+								</Magnetic>
 							</li>
 						))}
 						<li

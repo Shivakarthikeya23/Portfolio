@@ -11,7 +11,7 @@ import "react-vertical-timeline-component/style.min.css";
 
 import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
-import { textVariant } from "../utils/motion";
+import SectionHeading from "./SectionHeading";
 
 function ExperienceCard({ experience, theme }) {
   return (
@@ -85,10 +85,11 @@ function Experience() {
 
   return (
     <motion.section className="w-full p-8 mt-20">
-      <motion.div variants={textVariant()}>
-        <p className={`sectionSubText text-center sm:block`}>What I have done so far</p>
-        <h2 className={`sectionHeadText text-center sm:block`}>Work Experience.</h2>
-      </motion.div>
+      <SectionHeading
+        center
+        subtext="What I have done so far"
+        title="Work Experience."
+      />
 
       <div className="mt-20 flex flex-col">
         <VerticalTimeline lineColor={theme === "dark" ? "#7e8c9f" : "#8c9db1"}>

@@ -4,6 +4,7 @@ import emailjs from "@emailjs/browser";
 import DOMPurify from "dompurify";
 
 import { slideIn } from "../utils/motion";
+import Magnetic from "./Magnetic";
 
 function Contact() {
   const formRef = useRef();
@@ -130,12 +131,14 @@ function Contact() {
           />
         </label>
 
-        <button
-          type="submit"
-          className="bg-primary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-tertiary hover:shadow-primary hover:bg-tertiary transition-all duration-800 ease-in"
-        >
-          {loading ? "Sending..." : "Send"}
-        </button>
+        <Magnetic strength={0.25}>
+          <button
+            type="submit"
+            className="bg-primary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-tertiary hover:shadow-primary hover:bg-tertiary transition-all duration-800 ease-in"
+          >
+            {loading ? "Sending..." : "Send"}
+          </button>
+        </Magnetic>
       </form>
     </motion.div>
   );

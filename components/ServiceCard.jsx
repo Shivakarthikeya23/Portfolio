@@ -10,7 +10,7 @@ function ServiceCard({ index, title, icon }) {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
-        className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
+        className="w-full brand-border-gradient p-[1px] rounded-[20px] shadow-card"
       >
         <div
           options={{

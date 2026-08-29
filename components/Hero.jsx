@@ -1,17 +1,49 @@
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { ComputersCanvas } from "./canvas";
 import { fadeIn, textVariant } from "@/utils/motion";
 import { heroTexts } from "@/constants";
 
 function Hero({ loading, isMobile }) {
+  const sectionRef = useRef(null);
+  const canvasWrapRef = useRef(null);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      gsap.to(canvasWrapRef.current, {
+        y: isMobile ? 40 : 120,
+        scale: 0.92,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.6,
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [isMobile]);
+
   return (
     <section
-      className={`relative w-full h-[100svh] md:max-h-[800px] max-h-[600px] mx-auto flex flex-col`}
+      ref={sectionRef}
+      className={`relative w-full h-[100svh] md:max-h-[800px] max-h-[600px] mx-auto flex flex-col overflow-hidden`}
     >
+      <div aria-hidden="true" className="heroWordmark">
+        Shiva Karthik
+      </div>
       <div
-        className={`absolute inset-0 top-[120px] max-w-7xl mx-auto paddingX flex flex-row items-start gap-5`}
+        className={`absolute inset-0 top-[120px] max-w-7xl mx-auto paddingX flex flex-row items-start gap-5 z-10`}
       >
         <div className="flex flex-col justify-center items-center mt-5">
           <div className="w-5 h-5 rounded-full bg-primary" />
@@ -40,11 +72,12 @@ function Hero({ loading, isMobile }) {
         </motion.div>
       </div>
       <motion.div
+        ref={canvasWrapRef}
         variants={fadeIn("up", "spring")}
         initial="hidden"
         whileInView={!loading && "show"}
         viewport={{ once: true, amount: 0.25 }}
-        className="w-full md:h-[800px] sm:h-[300px] h-[200px] absolute md:top-[170px] sm:top-[280px] top-[350px]"
+        className="w-full md:h-[800px] sm:h-[300px] h-[200px] absolute md:top-[170px] sm:top-[280px] top-[350px] z-10"
       >
         <ComputersCanvas isMobile={isMobile} />
       </motion.div>

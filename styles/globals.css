@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -18,15 +18,17 @@
   }
 
   .heroHeadText {
-    @apply font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2;
+    @apply font-black dark:text-white text-ctnPrimaryLight lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2;
+    font-family: "Fraunces", serif;
   }
 
   .heroSubText {
-    @apply text-[#dfd9ff] font-medium text-[16px] xs:text-[20px] sm:text-[26px] lg:text-[30px] lg:leading-[40px];
+    @apply dark:text-[#dfd9ff] text-ctnPrimaryLight font-medium text-[16px] xs:text-[20px] sm:text-[26px] lg:text-[30px] lg:leading-[40px];
   }
 
   .sectionHeadText {
     @apply dark:text-ctnPrimaryDark text-ctnPrimaryLight font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px];
+    font-family: "Fraunces", serif;
     animation: lights 5s 750ms linear infinite;
   }
 
@@ -36,6 +38,18 @@
 
   .wave {
     @apply absolute w-full bg-top bg-no-repeat bg-cover;
+  }
+
+  .heroWordmark {
+    @apply absolute inset-x-0 bottom-[6%] text-center font-black uppercase leading-none pointer-events-none select-none whitespace-nowrap z-[1];
+    font-family: "Fraunces", serif;
+    font-size: clamp(2.75rem, 12vw, 9.5rem);
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(46, 56, 77, 0.1);
+  }
+
+  .dark .heroWordmark {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.06);
   }
 }
 
@@ -107,6 +121,44 @@ svg {
   display: block;
 }
 
+.has-custom-cursor,
+.has-custom-cursor a,
+.has-custom-cursor button {
+  cursor: none !important;
+}
+
+.cursor-dot,
+.cursor-ring {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.has-custom-cursor .cursor-dot,
+.has-custom-cursor .cursor-ring {
+  display: block;
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00bfff;
+  transform: translate3d(-100px, -100px, 0);
+}
+
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid #00bfff;
+  transition: width 0.2s ease, height 0.2s ease;
+  transform: translate3d(-100px, -100px, 0);
+}
+
 .violet-gradient {
   background: #00bfff;
   background: linear-gradient(-90deg, #00bfff 0%, rgba(0, 191, 255, 0) 100%);
@@ -121,6 +173,10 @@ svg {
   background: "#00cea8";
   background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
   background: -webkit-linear-gradient(-90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
+}
+
+.brand-border-gradient {
+  background: linear-gradient(135deg, #00bfff 0%, #804dee 100%);
 }
 
 .black-gradient {

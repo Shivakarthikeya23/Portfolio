@@ -6,6 +6,9 @@ import { useEffect, useState } from "react";
 import "@/styles/globals.css";
 
 import { PreLoader } from "@/components/Loader";
+import SmoothScroll from "@/components/SmoothScroll";
+import Cursor from "@/components/Cursor";
+import GrainOverlay from "@/components/GrainOverlay";
 
 export default function App({ Component, pageProps }) {
   const [loading, setLoading] = useState(true);
@@ -79,7 +82,11 @@ export default function App({ Component, pageProps }) {
       </Head>
 
       <ThemeProvider attribute="class" defaultTheme="dark">
-        <Component {...pageProps} loading={loading} />
+        <SmoothScroll>
+          <Component {...pageProps} loading={loading} />
+        </SmoothScroll>
+        <Cursor />
+        <GrainOverlay />
         <Analytics />
         {loading && <PreLoader />}
       </ThemeProvider>

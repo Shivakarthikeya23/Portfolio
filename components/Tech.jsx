@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "@/utils/motion";
+import SectionHeading from "./SectionHeading";
 
 const technologies = {
   languages: [
@@ -209,7 +210,7 @@ function Tech() {
                 width={40}
                 height={40}
                 className="object-contain"
-                priority={index < 4}
+                loading="lazy"
                 unoptimized={true}
               />
 
@@ -231,16 +232,12 @@ function Tech() {
 
   return (
     <section className="w-full h-fit p-8 mt-20" id="skills">
-      <motion.div
-        variants={textVariant()}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
-        className="text-center mx-auto"
-      >
-        <p className={"sectionSubText"}>What I have learnt so far</p>
-        <h2 className={"sectionHeadText"}>Skills.</h2>
-      </motion.div>
+      <SectionHeading
+        center
+        className="mx-auto"
+        subtext="What I have learnt so far"
+        title="Skills."
+      />
 
       <motion.div
         variants={fadeIn("", "", 0.1, 1)}
